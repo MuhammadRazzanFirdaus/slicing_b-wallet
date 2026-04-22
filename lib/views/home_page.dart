@@ -180,7 +180,7 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: [BoxShadow(blurRadius: 15, color: Colors.black26)],
+                  boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black12)],
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
