@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomInput extends StatelessWidget {
-  final String label;
-  final String value;
   final IconData? icon;
+  final String labelText;
+  final String placeHolder;
 
   const CustomInput({
     super.key,
-    required this.label,
-    required this.value,
+    required this.labelText,
+    required this.placeHolder,
     this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
+      padding: EdgeInsets.only(bottom: 15),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+        padding: EdgeInsets.only(left: 20, right: 20, top: 20),
         decoration: BoxDecoration(
-          color: const Color(0xFFF0F1F3),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: const Color(0xFFE0E0E0)),
+          border: Border.all(color: Colors.grey),
         ),
         child: Row(
           children: [
@@ -31,21 +31,31 @@ class CustomInput extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    label,
+                    labelText,
                     style: GoogleFonts.inter(fontSize: 12, color: Colors.grey),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    value,
+                  TextFormField(
                     style: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
+                    ),
+                    decoration: InputDecoration(
+                      hintText: placeHolder,
+                      hintStyle: TextStyle(color: Colors.grey[400], fontSize: 16),
+                      border: InputBorder.none,
+                      isDense: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 10,
+                      ), // Sesuaikan angka ini
                     ),
                   ),
                 ],
               ),
             ),
-            Icon(icon, color: Colors.grey, size: 20),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 15, right: 5),
+              child: Icon(icon, color: Colors.grey, size: 30),
+            ),
           ],
         ),
       ),

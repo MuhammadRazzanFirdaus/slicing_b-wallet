@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:slicing_mandiri/views/notification_page.dart';
+import 'package:slicing_mandiri/views/scan_page.dart';
 import '../widgets/menu_item.dart';
 import '../widgets/small_menu.dart';
 import '../widgets/promo_card.dart';
@@ -21,7 +22,9 @@ class HomePage extends StatelessWidget {
         margin: EdgeInsets.only(top: 10),
         child: FloatingActionButton(
           elevation: 8,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ScanPage()));
+          },
           backgroundColor: fromCssColor("#2D6CDF"),
           shape: CircleBorder(),
           child: Column(
@@ -84,94 +87,127 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 200,
-
+            SizedBox(
+              height: 220,
               width: double.infinity,
-
-              padding: EdgeInsets.only(top: 50, left: 30, right: 30),
-
-              decoration: BoxDecoration(color: fromCssColor("#1F6CFF")),
-
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
+              child: Stack(
                 children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-
-                      crossAxisAlignment: CrossAxisAlignment.start,
-
-                      children: [
-                        Text(
-                          "Saldo Balance",
-
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-
-                            fontSize: 18,
-                          ),
-                        ),
-
-                        SizedBox(height: 10),
-
-                        Row(
-                          children: [
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-
-                            SizedBox(width: 10),
-
-                            Icon(Icons.remove_red_eye, color: Colors.white38),
-                          ],
-                        ),
-                      ],
+                  // background biru
+                  Container(
+                    width: double.infinity,
+                    height: 220,
+                    decoration: BoxDecoration(
+                      color: fromCssColor("#1F6CFF"),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30),
+                      ),
                     ),
                   ),
 
-                  Container(
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.circular(50),
+                  Positioned(
+                    top: 143,
+                    left: -40,
+                    right: -40,
+                    child: Transform.rotate(
+                      angle: -0.30,
+                      child: Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.06),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(120),
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Icon(
-                      Icons.notifications,
-                      size: 35,
-                      color: Colors.white,
+                  ),
+
+                  Positioned(
+                    top: 93,
+                    left: -40,
+                    right: -40,
+                    child: Transform.rotate(
+                      angle: -0.30,
+                      child: Container(
+                        height: 190,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.10),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(100),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // content
+                  Padding(
+                    padding: EdgeInsets.only(top: 55, left: 25, right: 25),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Saldo Balance",
+                                style: GoogleFonts.inter(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                children: List.generate(
+                                  6,
+                                  (index) => Padding(
+                                    padding: EdgeInsets.only(right: 8),
+                                    child: Icon(
+                                      Icons.circle,
+                                      size: 8,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NotificationPage(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(14),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.notifications,
+                              size: 28,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
-
             Transform.translate(
               offset: Offset(0, -55),
               child: Container(
@@ -179,11 +215,12 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(15),
                   boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black12)],
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  spacing: 35,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MenuItem(
                       icon: Icons.add,
@@ -204,7 +241,6 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-
             Transform.translate(
               offset: Offset(0, -30),
               child: Padding(
@@ -220,7 +256,6 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Align(
@@ -243,9 +278,7 @@ class HomePage extends StatelessWidget {
                 children: [PromoCard(), PromoCard(), PromoCard()],
               ),
             ),
-
             SizedBox(height: 20),
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Align(
@@ -274,7 +307,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-
             SizedBox(height: 30),
           ],
         ),

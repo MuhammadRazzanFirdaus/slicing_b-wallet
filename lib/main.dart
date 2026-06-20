@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slicing_mandiri/views/home_page.dart';
+import 'package:slicing_mandiri/views/boarding_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'B - Wallet',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: BoardingPage(),
     );
   }
 }

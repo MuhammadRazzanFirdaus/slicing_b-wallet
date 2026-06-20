@@ -27,7 +27,7 @@ class BoardingPage extends StatelessWidget {
                 height: 250,
                 decoration: BoxDecoration(
                   color: Colors.white.withValues(alpha: 0.06),
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     topRight: Radius.circular(180),
                   ),
                 ),
@@ -45,7 +45,7 @@ class BoardingPage extends StatelessWidget {
                 height: 180,
                 decoration: BoxDecoration(
                   color: Colors.white.withValues(alpha: 0.10),
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     topRight: Radius.circular(150),
                   ),
                 ),
@@ -55,19 +55,19 @@ class BoardingPage extends StatelessWidget {
 
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 100),
+              padding: EdgeInsets.only(left: 30, right: 30, top: 180),
 
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(50),
                     ),
-                    child: Image.asset("assets/Logo.png"),
+                    child: Image.asset("assets/images/Logo.png"),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Text(
                     "B-Wallet",
                     style: GoogleFonts.inter(
@@ -76,13 +76,13 @@ class BoardingPage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 23),
+                  SizedBox(height: 23),
                   Text(
                     "B-Wallet adalah aplikasi e-wallet untuk cek saldo, transfer, top up, dan pembayaran dengan tampilan yang simpel dan modern.",
                     style: GoogleFonts.inter(fontSize: 16, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 150),
+                  SizedBox(height: 310),
                   Text(
                     "Your best choice for e-wallet",
                     style: GoogleFonts.inter(color: Colors.white, fontSize: 14),
@@ -97,7 +97,7 @@ class BoardingPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: fromCssColor("#1F6CFF"),
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        padding: EdgeInsets.symmetric(vertical: 20),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),

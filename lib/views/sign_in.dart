@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slicing_mandiri/views/home_page.dart';
-import 'package:slicing_mandiri/views/sign_in.dart';
+import 'package:slicing_mandiri/views/sign_up.dart';
 import 'package:slicing_mandiri/widgets/custom_input.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class SignUpPage extends StatelessWidget {
               color: fromCssColor("#1F6CFF"),
             ),
             Positioned(
-              top: 105,
+              top: 200,
               left: -50,
               right: -50,
               child: Transform.rotate(
@@ -38,7 +38,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 185,
+              top: 285,
               left: -50,
               right: -50,
               child: Transform.rotate(
@@ -56,7 +56,7 @@ class SignUpPage extends StatelessWidget {
             ),
             Column(
               children: [
-               SizedBox(height: 100),
+                SizedBox(height: 200),
                 Container(
                   padding: EdgeInsets.all(18),
                   decoration: BoxDecoration(
@@ -65,7 +65,7 @@ class SignUpPage extends StatelessWidget {
                   ),
                   child: Image.asset("assets/images/Logo.png", height: 40),
                 ),
-               SizedBox(height: 10),
+                SizedBox(height: 10),
                 Text(
                   "B-Wallet",
                   style: GoogleFonts.inter(
@@ -74,7 +74,7 @@ class SignUpPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-               SizedBox(height: 40),
+                SizedBox(height: 100),
                 Container(
                   width: double.infinity,
                   padding: EdgeInsets.all(25),
@@ -97,30 +97,20 @@ class SignUpPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                     SizedBox(height: 20),
+                      SizedBox(height: 20),
                       Text(
-                        "Sign Up",
+                        "Sign In",
                         style: GoogleFonts.inter(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                     SizedBox(height: 20),
-                      SizedBox(height: 110, child: CustomInput(labelText: "Name", placeHolder: "Samantha Zalora")),
-                      SizedBox(height: 110, child: CustomInput(labelText: "Phone Number", placeHolder: "08768262427")),
+                      SizedBox(height: 20),
                       SizedBox(
                         height: 110,
                         child: CustomInput(
-                          labelText: "Email Address",
-                          placeHolder: "Samantha@gmail.com",
-                        ),
-                      ),
-                      SizedBox(
-                        height: 110,
-                        child: CustomInput(
-                          labelText: "Birthday",
-                          placeHolder: "8 March 1997",
-                          icon: Icons.calendar_today_outlined,
+                          labelText: "Email/Phone Number",
+                          placeHolder: "08768262427",
                         ),
                       ),
                       SizedBox(
@@ -131,7 +121,7 @@ class SignUpPage extends StatelessWidget {
                           icon: Icons.visibility_outlined,
                         ),
                       ),
-                     SizedBox(height: 25),
+                      SizedBox(height: 25),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
@@ -151,7 +141,7 @@ class SignUpPage extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            "Sign Up",
+                            "Sign In",
                             style: GoogleFonts.inter(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -164,19 +154,24 @@ class SignUpPage extends StatelessWidget {
                       Center(
                         child: Text.rich(
                           TextSpan(
-                            text: "Already have an account? ",
+                            text: "Doesn't have any account yet? ",
                             style: GoogleFonts.inter(color: Colors.grey),
                             children: [
                               TextSpan(
-                                text: "Sign In",
+                                text: "Sign Up",
                                 style: GoogleFonts.inter(
                                   color: fromCssColor("#FF8C00"),
                                   fontWeight: FontWeight.w600,
                                 ),
                                 recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
-                                  }
+                                  ..onTap = () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => SignUpPage(),
+                                      ),
+                                    );
+                                  },
                               ),
                             ],
                           ),

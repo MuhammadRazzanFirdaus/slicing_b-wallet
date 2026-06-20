@@ -6,7 +6,7 @@ class SmallMenu extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  const SmallMenu({super.key, required this.icon, required this.label});
+  const SmallMenu({super.key, required this.icon, this.label = ""});
 
   @override
   Widget build(BuildContext context) {
